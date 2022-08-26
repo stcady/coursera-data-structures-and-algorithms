@@ -1,1 +1,3 @@
-# coursera-data-structures-and-algorithms
+# Coursera Data Structures and Algorithms
+
+## Algorithmic Toolbox
