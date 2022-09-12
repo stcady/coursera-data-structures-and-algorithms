@@ -8,18 +8,19 @@ class TreeHeight:
         def read(self):
                 self.n = int(sys.stdin.readline())
                 self.parent = list(map(int, sys.stdin.readline().split()))
+                self.set = [None] * self.n
+
+        def depth(self, i):
+                if self.parent[i] == -1:
+                        return 1
+                if self.set[i]:
+                        return self.set[i]
+                self.set[i] = 1 + self.depth(self.parent[i])
+                return self.set[i]
 
         def compute_height(self):
-                # Replace this code with a faster implementation
-                maxHeight = 0
-                for vertex in range(self.n):
-                        height = 0
-                        i = vertex
-                        while i != -1:
-                                height += 1
-                                i = self.parent[i]
-                        maxHeight = max(maxHeight, height)
-                return maxHeight
+                return max([self.depth(index) for index in range(0, self.n)])
+
 
 def main():
   tree = TreeHeight()
